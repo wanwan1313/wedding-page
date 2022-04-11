@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrew & Wanwan Wedding Party</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        html {
+            font-size: 10px;
+            font-family: 'Noto Serif TC', serif;
+        }
+        body {
+            margin: 0;
+            background-image: url(./imgs/texture.png);
+            background-color: rgb(241, 240, 237);
+        }
+        img {
+            width: 100%;
+            display: inline-block;
+            height: 100%;
+            object-fit: contain;
+        }
+        .bar {
+            font-size: 4.8rem;
+            text-align: center;
+            width: 100%;
+            height: 70px;
+            line-height: 70px;
+            background-color: rgb(130, 107, 72);
+            font-family: 'Grape Nuts', cursive;
+            color: #fff;
+            position: fixed;
+            z-index: 999;
+        }
+        /* --------------- */
+        .main {
+            width: 100%;
+            height: calc(100vh - 70px);
+            display: flex;
+            flex-wrap: wrap;
+            padding: 5%;
+            position: relative;
+        }
+        .main::after {
+            content: '';
+            position: absolute;
+            width: 110px;
+            height: 100%;
+            background: url(./imgs/line.svg) no-repeat center center;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .main-img, .main-content {
+            width: 50%;
+            height: 100%;
+        }
+        .main-img {
+            padding-right: 60px;
+        }
+        .main-content {
+            padding-left: 60px;
+        }
+        .img-wrap{
+            width: 100%;
+            max-width: 780px;
+            height: 100%;
+            margin: 0 auto;
+        }
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .title {
+            width: 80%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+        .content {
+            width: 100%;
+            max-width: 700px;
+            padding-top: 40px;
+            height: 80%;
+        }
+        .invitation {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            padding-top: 40px;
+        }
+        .invitation-text {
+            width: 20%;
+            min-width: 130px;
+        }
+        .smile {
+            width: 8%;
+            min-width: 40px;
+            margin-left: 30px;
+            animation: wave 1s linear infinite alternate;
+        }
+
+        /* --------------- */
+        .say{
+            width: 100%;
+            height: 100vh;
+            padding-top: calc(5% + 70px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .traffic {
+            width: 100%;
+            height: auto;
+        }
+
+        .intro, .covid, .information{
+            width: 100%;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+            line-height: 4rem;
+            color: #4f383e;
+            margin: 0 auto;
+        }
+
+        .covid-title, .traffic-title {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding-top: 40px;
+        }
+        .point {
+            background: url(./imgs/frame.svg) no-repeat center center;
+            width: 100%;
+            padding: 40px 10px;
+        }
+
+        .information-main {
+            height: 100vh;
+            padding-top: 70px;
+        }
+
+        .map {
+            width: 100%;
+            background: url(./imgs/1956-1.jpg) no-repeat center center;
+            background-size: contain;
+            height: calc(100vh - 250px);
+            margin-top: 10px;
+        }
+
+        .information-tips {
+            height: 100vh;
+            padding-top: 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .tips {
+            width: 90%;
+            padding-top: 20px;
+            text-align: left;
+            max-width: 530px;
+        }
+        .space {
+            margin-top: 20px;
+            width: 100%;
+        }
+        .space-name {
+            font-size: 2rem;
+            width: fit-content;
+            background-color: black;
+            color: #fff;
+            margin: 0 auto;
+        }
+        .space-pic {
+            width: 90%;
+            max-width: 700px;
+            margin: 10px auto 0;
+            border: 4px solid #fff;
+            box-shadow: 2px 2px 5px #ccc;
+        }
+
+        .footer {
+            width: 100%;
+            height: 100vh;
+            background: url(./imgs/photo-bg@3x.png) no-repeat center center;
+            background-size: cover;
+            width: 100%;
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            line-height: 6rem;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        @media (max-width: 991px) {
+            html {
+                font-size: 9px;
+            }
+            .main {
+                padding: 0 15px;
+                height: auto;
+            }
+            .main::after {
+                background: none;
+            }
+            .main-img {
+                width: 100%;
+                height: calc(100vh - 70px);
+                padding:  30px 0;
+            }
+            .main-content {
+                width: 100%;
+                height: 100vh;
+                padding:  100px 0 30px;
+            }
+            .traffic {
+                padding: 0 15px;
+                height: auto;
+            }
+            .information-main {
+                width: 100%;
+                height: 100vh;
+                padding-top: 70px;
+            }
+
+            .map {
+                background: url(./imgs/1956-2.jpg) no-repeat center center;
+                background-size: contain;
+                height: calc(100vh - 170px);
+            }
+            .footer {
+                width: 100%;
+                height: 100vh;
+                background: url(./imgs/photo-bg@3x.png) no-repeat 10% 0%;
+                background-size: cover;
+            }
+
+        }
+
+        @media (max-height: 1100px) {
+            .say {
+                height:auto;
+                padding: 0 15px;
+            }
+            .intro, .covid {
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+        }
+
+        @keyframes wave {
+            0% {
+                transform: rotate(-30deg);
+            }
+            50% {
+                transform: rotate(0);
+            }
+            100% {
+                transform: rotate(30deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bar">
+        Wedding Invitation
+    </div>
+    <div style="width: 100%; height: 70px;"></div>
+    <section class="main">
+        <div class="main-img">
+            <div class="img-wrap">
+                <img src="./imgs/main-img.png" alt="">
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="title">
+                <img src="./imgs/title.svg" alt="">
+            </div>
+            <div class="content">
+                <img src="./imgs/main-content.svg" alt="">
+            </div>
+            <div class="invitation">
+                <img class="invitation-text" src="./imgs/invitation.svg" alt="">
+                <img class="smile" src="./imgs/smile.svg" alt="" >
+            </div>
+        </div>
+    </section>
+    <section class="say">
+        <div class="intro">
+            <div>
+                <p style="font-size: 2.8rem;">Hello! <br />My dear family and friends :)</p>
+                <br />
+                感謝大家百忙之中抽空來參加我們的婚禮
+                <br />
+                近期疫情日趨嚴峻
+                <br />
+                不知道大家疫苗是否打好打滿了呢？
+                <br />
+                還沒的話建議大家盡快去施打，以保護自己哦！
+            </div>
+        </div>
+        <div class="covid">
+            <div class="covid-title">
+                <img src="./imgs/covid.svg" alt="">
+            </div>
+            <div class="point">
+                <div>
+                    5/1就是籌備已久的婚宴
+                    <br />
+                    因應防疫，現場會有量體溫跟噴酒精消毒
+                    <br />
+                    也會提供快篩試劑
+                    <br />
+                    讓到場的賓客們先快篩後再入場
+                    <br />
+                    讓大家放心的一同慶祝這場婚宴
+                    <br />
+                    如果當天有身體不適的朋友
+                    <br />
+                    建議就不要來參加，在家裡好好休息喔！
+                </div>
+            </div>
+            <div style="margin-top: 20px;">
+                <p>當然，如果有擔心疫情而想要取消參加的朋友</p>
+                <p>提前告知一聲沒有問題的～</p>
+                <p>可以的話，希望在4/20前通知我們唷！</p>
+            </div>
+        </div>
+    </section>
+    <section class="traffic">
+        <div class="information">
+            <div class="information-main">
+                <div class="traffic-title">
+                    <img src="./imgs/traffic.svg" alt="">
+                </div>
+                <div class="map"></div>
+            </div>
+            <div class="information-tips">
+                <div class="tips">
+                    <p style="display: flex;"><i class="bi bi-chat-right-heart-fill" style="margin-right: 10px;"></i>假日仰德大道易塞車，提醒大家要提早上山以免晚到喔！</p>
+                    <p style="display: flex;"><i class="bi bi-chat-right-heart-fill" style="margin-right: 10px;"></i>怕塞車的朋友也可以從無管制的文化大學後山(天母)上山喔！</p>
+                </div>
+                <div class="space">
+                    <p class="space-name">《 陽明山美國渡假村 - 1966 Vintage 》</p>
+                    <div class="space-pic">
+                        <img src="./imgs/1956vintage.jpeg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="footer">
+        <p>期待5/1與各位在陽明山碰面<br /> 婚禮見囉 :) </p>
+    </section>
+    <script>
+        let scrollTop = 0;
+        let finished = true;
+        let max;
+        if(window.innerWidth > 991) max = 4;
+        else max = 5;
+        const handleScroll = () => {
+               let position = Math.floor(Math.round(document.documentElement.scrollTop) / window.innerHeight)
+               if(position > max) position = max
+               if(finished && document.documentElement.scrollTop > scrollTop){
+                   window.scrollTo({
+                       top: window.innerHeight * (position + 1),
+                       behavior: 'smooth'
+                   });
+                   console.log('down')
+                   finished = false;
+                   setTimeout(() => {
+                       finished = true
+                   }, 800);
+               }else if(finished && document.documentElement.scrollTop <= scrollTop){
+                   window.scrollTo({
+                       top: window.innerHeight * position,
+                       behavior: 'smooth'
+                   });
+                   console.log('up')
+                   finished = false;
+                   setTimeout(() => {
+                       finished = true
+                   }, 800);
+               }
+               scrollTop = document.documentElement.scrollTop
+            }
+        // window.addEventListener('scroll', handleScroll)
+
+
+    </script>
+</body>
+</html>
